@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/App.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1734828655299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1734828655299,
+            "name": "Commit-0",
+            "content": ".App {\n  text-align: center;\n}\n\n.App-logo {\n  height: 40vmin;\n  pointer-events: none;\n}\n\n@media (prefers-reduced-motion: no-preference) {\n  .App-logo {\n    animation: App-logo-spin infinite 20s linear;\n  }\n}\n\n.App-header {\n  background-color: #282c34;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: calc(10px + 2vmin);\n  color: white;\n}\n\n.App-link {\n  color: #61dafb;\n}\n\n@keyframes App-logo-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n\n\n/* CSS to center the header */\n.header-container {\n  text-align: center !important;\n  margin-top: 20px;\n}\n\n.chat {\n  /* Add some margin and padding to space out the chat */\n  margin: 20px;\n  padding: 10px;\n}\n\n/* Style for job offer section */\n.job-offer {\n  margin-top: 20px;\n  text-align: center;\n}\n\n.input-area {\n  margin-top: 10px;\n  text-align: center;\n}\n\n/* styles.css */\nbody {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n  background-color: #f4f4f4;\n}\n\nh1 {\n  margin-top: 20px;\n  color: #333;\n  font-size: 2em;\n}\n\n.posts {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  padding: 20px;\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.post {\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n  max-width: 700px;\n  margin: 0 auto;\n  transition: transform 0.3s ease;\n}\n\n.post:hover {\n  transform: scale(1.02);\n}\n\n.post h3 {\n  margin: 0 0 10px;\n  font-size: 1.5em;\n  color: #333;\n}\n\n.post p {\n  color: #555;\n  font-size: 1.1em;\n  margin: 10px 0;\n}\n\n.post-image {\n  width: 100%;\n  height: auto;\n  border-radius: 8px;\n  margin-top: 15px;\n  object-fit: cover;\n}\n\n.post-actions {\n  display: flex;\n  gap: 15px;\n  margin-top: 15px;\n}\n\n.comment-button, .share-button {\n  background-color: #008CBA;\n  color: white;\n  padding: 8px 16px;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\n\n.comment-button:hover, .share-button:hover {\n  background-color: #005f73;\n}\n\n.chat-button {\n  display: inline-block;\n  margin-top: 10px;\n  padding: 10px 20px;\n  background-color: #4CAF50;\n  color: white;\n  text-decoration: none;\n  border-radius: 4px;\n  text-align: center;\n}\n\n.chat-button:hover {\n  background-color: #45a049;\n}\n\n.approve-button{\n  margin-bottom: 100px;\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/Verify.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1734828621160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1734828621160,
+            "name": "Commit-0",
+            "content": "// src/Verify.js\r\n\r\nimport React from \"react\";\r\nimport {\r\n  IDKitWidget,\r\n  ISuccessResult,\r\n  VerificationLevel,\r\n} from \"@worldcoin/idkit\";\r\nimport { Box, Button, Typography, Stack } from \"@mui/material\";\r\n\r\nconst Verify = () => {\r\n  const handleVerify = async (proof) => {\r\n    console.log(\"Verification proof received:\", proof);\r\n\r\n    const res = await fetch(\"/api/verify\", {\r\n      method: \"POST\",\r\n      headers: {\r\n        \"Content-Type\": \"application/json\",\r\n      },\r\n      body: JSON.stringify(proof),\r\n    });\r\n\r\n    if (!res.ok) {\r\n      throw new Error(\"Verification failed\");\r\n    }\r\n\r\n    const data = await res.json();\r\n    console.log(\"Server response:\", data);\r\n  };\r\n\r\n  const onSuccess = () => {\r\n    console.log(\"Verification successful, redirecting...\");\r\n    window.location.href = \"/success\";\r\n  };\r\n\r\n  return (\r\n    <Box>\r\n      <Stack spacing={4}>\r\n        <Box\r\n          sx={{\r\n            display: \"flex\",\r\n            justifyContent: { xs: \"center\", md: \"center\" },\r\n          }}\r\n        >\r\n          <IDKitWidget\r\n            app_id=\"app_staging_76ca67c719dfdb2d97f4ad4e65ec0561\" App ID\r\n            action=\"verification\" \r\n            onSuccess={onSuccess}\r\n            handleVerify={handleVerify}\r\n            verification_level={VerificationLevel.Orb}\r\n          >\r\n            {({ open }) => <Button onClick={open}>Verify with World ID</Button>}\r\n          </IDKitWidget>\r\n        </Box>\r\n      </Stack>\r\n    </Box>\r\n  );\r\n};\r\n\r\nexport default Verify;\r\n"
+        }
+    ]
+}
