@@ -8,18 +8,14 @@ const ConnectWallet = ({ onAddressChange }) => {
   const connectWallet = async () => {
     if (typeof window.ethereum !== "undefined") {
       try {
-        // Request account access if needed
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
-        // Create an ethers provider
-        const provider = new BrowserProvider(window.ethereum); // Use BrowserProvider for newer ethers.js versions
+        const provider = new BrowserProvider(window.ethereum); 
         const signer = await provider.getSigner();
 
-        // Get the user's Ethereum address
         const address = await signer.getAddress();
         setWalletAddress(address);
 
-        // Callback to pass address to the parent component
         if (onAddressChange) {
           onAddressChange(address);
         }
@@ -38,7 +34,7 @@ const ConnectWallet = ({ onAddressChange }) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%", // Ensures it spans the container width
+    width: "100%", 
   }}
 >
   {walletAddress ? (

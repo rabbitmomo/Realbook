@@ -38,19 +38,16 @@
 }
 
 
-/* CSS to center the header */
 .header-container {
   text-align: center !important;
   margin-top: 20px;
 }
 
 .chat {
-  /* Add some margin and padding to space out the chat */
   margin: 20px;
   padding: 10px;
 }
 
-/* Style for job offer section */
 .job-offer {
   margin-top: 20px;
   text-align: center;

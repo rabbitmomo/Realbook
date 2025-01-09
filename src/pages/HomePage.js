@@ -7,18 +7,18 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { faWallet } from '@fortawesome/free-solid-svg-icons';
 
+
 library.add(faCircleCheck);
 library.add(faWallet);
 
 const HomePage = () => {
-    // Simulate some posts data (could be fetched from the backend in a real-world scenario)
     const posts = [
         { 
             id: 1, 
             name: 'John Doe', 
             walletAddress: '0x1234abcd5678efgh9012ijklmnop3456qrst7890',
             isVerified: true,
-            content: 'Looking for a developer to help with a new blockchain-based project! If you have experience with Solana and smart contracts, I could use your expertise. DM me for details and let’s work together!',
+            content: 'Looking for a developer to help with a new blockchain-based project! If you have experience with Ethereum and smart contracts, I could use your expertise. DM me for details and let’s work together!',
             image: 'https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f240b8a1-b1fa-4744-821e-77683cd19efb_1600x1200.jpeg', 
             comments: 12,
             shares: 5,

@@ -3,15 +3,15 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ConnectWallet from './ConnectWallet';
 import Verify from './Verify';
+import '../css/MessagePage.css';
 
 const MessagePage = () => {
-    const { userId } = useParams(); // Get userId from the URL
+    const { userId } = useParams(); 
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState('');
-    const [jobOffer, setJobOffer] = useState(false); // Track if a job offer should appear
-    const [jobAnalysis, setJobAnalysis] = useState(''); // Store job analysis result
+    const [jobOffer, setJobOffer] = useState(false); 
+    const [jobAnalysis, setJobAnalysis] = useState(''); 
 
-    // Simulating a message fetching mechanism (you would fetch messages from your backend here)
     useEffect(() => {
         setMessages([
             { sender: 'John Doe', content: 'Hey, how are you?' }        
@@ -23,14 +23,12 @@ const MessagePage = () => {
         setMessages([...messages, newMessage]);
         setMessage('');
 
-        // Simulate sending the message to the backend
         try {
             await axios.post('/send-message', { userId, message });
         } catch (err) {
             console.error('Error sending message:', err);
         }
 
-        // Simulate a response from the other user with job phases
         setTimeout(() => {
             setMessages(prevMessages => [
                 ...prevMessages,
@@ -47,23 +45,20 @@ const MessagePage = () => {
                 }
             ]);
             setJobOffer(true);
-        }, 1000); // Simulate delay in reply        
+        }, 1000);         
     };
 
     const handleApproveJob = () => {
-        // Simulate approving the crypto job transaction
         alert('Success! Transaction approved. Proceed to Phase 2.');
     };
 
     const handleAnalyzeJobOffer = async () => {
         try {
-            // Get the content of the latest job offer message
             const jobOfferContent = messages
                 .filter(msg => msg.sender === 'John Doe' && msg.content.includes('Phase 1')) // Example condition
                 .map(msg => msg.content)
                 .join('\n');
 
-            // Send the job offer content to the GPT-based backend for scam analysis
             const analysisResponse = await axios.post('http://localhost:5000/gpt-response', {
                 prompt: `
                 Analyze the following job offer for potential scams or malicious intent. Respond in a JSON object with the following structure:
@@ -76,7 +71,6 @@ const MessagePage = () => {
                 `
             });
 
-            // Extract the JSON response
             const { isScam, analysis } = JSON.parse(analysisResponse.data.reply);
             if (isScam === 'Yes') {
                 setJobAnalysis(`
@@ -120,14 +114,12 @@ const MessagePage = () => {
                     />
                     <button onClick={handleSend}>Send</button>
                 </div>
-                {/* Show job offer with phases and buttons */}
                 {jobOffer && (
                     <div className="job-offer">
                     <button onClick={handleAnalyzeJobOffer}>Analyze Job Offer for Scam</button>
                         <button onClick={handleApproveJob} style={{ marginLeft: '10px' }}>Approve Job Transaction</button>
                     </div>
                 )}
-                {/* Display the job analysis result */}
                 {jobAnalysis && (
                     <div className="job-analysis" dangerouslySetInnerHTML={{ __html: jobAnalysis }} />
                 )}
